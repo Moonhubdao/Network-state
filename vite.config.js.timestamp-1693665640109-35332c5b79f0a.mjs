@@ -3,6 +3,7 @@ import { defineConfig } from "file:///C:/Users/USER/Documents/moonhub/node_modul
 import react from "file:///C:/Users/USER/Documents/moonhub/node_modules/@vitejs/plugin-react/dist/index.mjs";
 var vite_config_default = defineConfig({
   plugins: [react()]
+  
 });
 export {
   vite_config_default as default
