@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #2C0E23, #0D0C0C, #0D0C0C 100%);
+  
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.one {
+  padding-left: 20px;
+  display: block;
+  flex-direction: column;
+  top: 0;
+  flex: 90%;
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
