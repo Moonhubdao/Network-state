@@ -1,5 +1,5 @@
 import React from "react";
-import "./Contact.css";
+
 const Contact = () => {
   return (
     <div className="contact text-white px-5 flex flex-col lg:flex-row lg:justify-between lg:gap-12 border-t border-[#0D0C0C] pb-12  ">

@@ -1,5 +1,5 @@
 import React from "react";
-import "./main.css";
+
 import NavigateNextOutlinedIcon from "@mui/icons-material/NavigateNextOutlined";
 import mainImg from "../../assets/mainImg.png";
 

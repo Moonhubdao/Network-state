@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import NavigateNextOutlinedIcon from "@mui/icons-material/NavigateNextOutlined";
-import "./NavBar.css";
+
 import About from "../../components/About/About";
 import Contact from "../../components/Contact/Contact";
 import Footer from "../../components/Footer/Footer";

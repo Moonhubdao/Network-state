@@ -1,5 +1,5 @@
 import React from "react";
-import "./Team.css";
+
 import Obinna from "../../assets/Obinna.png";
 import Daniel from "../../assets/Daniel.png";
 import Samson from "../../assets/Samson.png";
