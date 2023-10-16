@@ -324,8 +324,8 @@ export const Auth = () => {
 
 export const Homepage = ({ login }) => {
   return (
-    <div>
-      <div className="flex items-center justify-between p-5 px-12 navBar">
+    <div className="bg-[#2C0E23]">
+      <div className="flex items-center justify-between p-5 px-12">
         <img src={logo} alt="Logo" className="w-20 lg:w-40" />
         <button
           onClick={login}
