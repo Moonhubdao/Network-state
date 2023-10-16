@@ -26,7 +26,7 @@ import Hero from "../../components/Hero/Hero";
 import Main from "../../components/Main/Main";
 import Team from "../../components/Team/Team";
 // import Chats from "../../Pages/ChatApp/Chat";
-import "../NavBar/NavBar.CSS";
+// import "../NavBar/NavBar.CSS";
 import Chats from "../../Pages/ChatApp/Chat";
 
 // import "./NavBar.css";
