@@ -11,6 +11,12 @@ const userSchema = mongoose.Schema(
     wallet: {
       type: String,
     },
+    username: {
+      type: String,
+    },
+    secret: {
+      type: String,
+    },
   },
   {
     timestamps: true,

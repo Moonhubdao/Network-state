@@ -6,13 +6,16 @@ const AuthPage = (props) => {
     const { value } = e.target[0];
 
     const response = axios
-      .post("http://localhost:8000/api/chat", { username: value })
+      .post("http://localhost:8000/api/update", {
+        username: value,
+        // updatedName: value,
+      })
       .then((r) => props.onAuth({ ...response.data, secret: value }))
       .catch((err) => console.log("error", err));
   };
-
   return (
     <div className="flex items-center justify-center bg-gradient-to-r from-[#0D0C0C] via-[#2C0E23] to-[#0D0C0C] h-screen">
+
       <form
         onSubmit={onSubmit}
         className="bg-white p-8 rounded-lg shadow-md w-96"

@@ -12,7 +12,7 @@ import userRoutes from "./routes/user.routes.js";
 const app = express();
 
 // Cross Origin Resource Sharing
-app.use(cors({ origin: true }));
+app.use(cors());
 
 // built-in middleware for json
 app.use(express.json());

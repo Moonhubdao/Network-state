@@ -61,20 +61,30 @@ export const updateUserInfo = async (req, res) => {
 // @route PUT /api/createChatUser
 // access Private
 export const createChatUser = async (req, res) => {
-  const { username } = req.body;
+  const { username, secret } = req.body;
 
   try {
-    const response = await axios.put(
+
+    console.log(username, secret)
+    const response = await axios.post(
       "https://api.chatengine.io/users/",
       {
         username: username,
-        secret: username,
+        secret: secret,
         first_name: username,
       },
-      { headers: { "PRIVATE-KEY": "ab985e00-09bf-4949-8369-513550a05aea" } }
+      {
+        headers: {
+          'PRIVATE-KEY': 'bdafe1a7-564f-408b-be0c-27bc61f51b4d', 
+        },
+      }
     );
+
+    console.log("ChatEngine API Response:", response.data); // Optional: Log the API response for debugging
+
     return res.status(201).json(response.data);
   } catch (error) {
+    console.error("Error creating chat user:", error); // Log the error for debugging
     return res.status(403).json({ error: error.message });
   }
 };

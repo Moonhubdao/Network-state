@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import logo from "../../assets/logo.png";
 
 import {
   Connection,
@@ -18,7 +19,17 @@ import { SolanaWalletAdapter } from "@web3auth/torus-solana-adapter";
 import { SolanaPrivateKeyProvider } from "@web3auth/solana-provider";
 
 import Dashboard from "../../Pages/Dashboard/dashboard";
-import Homepage from "../../Pages/Homepage/Homepage";
+import About from "../../components/About/About";
+import Contact from "../../components/Contact/Contact";
+import Footer from "../../components/Footer/Footer";
+import Hero from "../../components/Hero/Hero";
+import Main from "../../components/Main/Main";
+import Team from "../../components/Team/Team";
+// import Chats from "../../Pages/ChatApp/Chat";
+import "../NavBar/NavBar.CSS";
+import Chats from "../../Pages/ChatApp/Chat";
+
+// import "./NavBar.css";
 
 const clientId =
   "BMlR-zIS_NDi6khlkx3S6Lkb-cATBhdS-srB7yHwUkY1WTHF0v3mRQ64nOcN05_88nDizTx0vwTtmIdIhiGnxCE";
@@ -216,6 +227,7 @@ export const Auth = () => {
 
       setProvider(web3authProvider);
       setIsLoggedIn(true);
+      updateUserInfo(wallet, name, email);
     } catch (error) {
       console.error("Error during login:", error);
       // Handle the error as needed
@@ -285,51 +297,53 @@ export const Auth = () => {
     setUserData(user);
     console.log(user);
   };
-
   const logout = async () => {
-    if (!web3auth) {
-      console.log("web3auth not initialized yet");
-      return;
+    try {
+      if (!web3auth) {
+        console.log("web3auth not initialized yet");
+        return;
+      }
+      await web3auth.logout();
+      setProvider(null);
+      setUserData({});
+    } catch (error) {
+      console.error("Error during logout:", error);
     }
-    await web3auth.logout();
-    setProvider(null);
-    setUserData({});
   };
-  const loggedInView = (
-    <div>
-      <Dashboard logout={logout} />
-    </div>
-  );
-
-  const unloggedInView = (
-    <div className="unlogged">
-      <Homepage login={login} />
-    </div>
-  );
-
-  // useEffect(() => {
-  //   // Check if a username already exists for the wallet
-  //   if (wallet) {
-  //     // Assuming 'wallet' contains the wallet address
-  //     axios
-  //       .post("http://localhost:8000/api/checkUsername", { wallet })
-  //       .then((response) => {
-  //         setUsernameExists(response.data.exists);
-  //       })
-  //       .catch((error) => {
-  //         console.log("Error:", error);
-  //       });
-  //   }
-  // }, [wallet]);
 
   return (
-    // <div>
-    //   <div>{provider ? loggedInView : unloggedInView}</div>
-    // </div>
     <div>
-      <div>
-        {provider ? <Dashboard logout={logout} /> : <Homepage login={login} />}
+      <div className="hidden">
+        <Dashboard logout={logout} />
       </div>
+
+      {provider ? <Chats logout={logout} /> : <Homepage login={login} />}
     </div>
   );
 };
+
+export const Homepage = ({ login }) => {
+  return (
+    <div>
+      <div className="flex items-center justify-between p-5 px-12 navBar">
+        <img src={logo} alt="Logo" className="w-20 lg:w-40" />
+        <button
+          onClick={login}
+          className="flex items-center justify-center font-black text-white bg-[#2C0E23] px-6 py-2 rounded-3xl hover:bg-[#B0186A] hover:border-0"
+        >
+          Login
+        </button>
+      </div>
+      <Hero />
+      <Main />
+      <About />
+      <Team />
+      <Contact />
+      <Footer />
+    </div>
+  );
+};
+
+// export const Dashboard = () => {
+
+// }
