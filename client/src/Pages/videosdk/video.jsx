@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Videos from "./VideoCOmponent";
+import Videos from "./videocomp";
 import { Link } from "react-router-dom";
 
 const Video = () => {
